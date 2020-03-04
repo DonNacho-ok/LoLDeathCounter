@@ -1,5 +1,5 @@
 const request = require("request");
-var apikey ="RGAPI-903504a2-1e77-4e43-8a8f-f180a746fd29";
+var apikey ="API-KEY-HERE";
 
 module.exports = function(app, api){
   app.get("/getSummonerId",function(req, res){
