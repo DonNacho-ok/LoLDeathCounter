@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="resources/styles.css">
+    <script src="resources/functions.js" charset="utf-8"></script>
+    <style media="screen">
+      body{
+        background-image : url(resources/fondo.jpg);
+        background-size : 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        background-filter: blur(8px);
+      }
+    </style>
+    <title>LoL Death Counter</title>
+  </head>
+  <body>
+    <div class="jumbotron" style="background : rgba(192, 192, 192, 0.5);" >
+      <div class="container" id="jumbocontainer">
+        <h1 class="display-3 text-center" style="color : #afb200 ; text-shadow: 4px 3px #6a6a6a;">League of Legends Death Counter</h1>
+        <h3 class="text-center">A ver que tanto INTeas</h3>
+      </div>
+    </div>
+    <br>
+    <div class="container-sm border border-dark" style="background: rgba(192, 192, 192, 0.7)">
+      <div id="presentation-container">
+        <h3 class="text-center">Bienvenido al Contador de Muertes</h3>
+        <p class="text-justify">
+          Queres saber el total de muertes que tenes? Queres ver que tanto mueren los
+          que te bardean diciendote "Volve a hierro" o "Broncesito"?. Entonces viniste al lugar
+          indicado. Ahora vas a ser VOS quien se burle de como INTean, a pesar que esten en Diamante...
+        </p>
+        <br>
+        <p class="text-justify">
+          P.D: si no sabes que es INT o INTear, es la acción legítima de trollear intencionalmente
+          muriendo una y otra vez, arruinando por completo el juego para todos los involucrados, exceptuando
+          a el jugador en el equipo enemigo en su promo que esta subiendo de rank valiendosé por su habilidad.
+        </p>
+      </div>
+    </div>
+    <br>
+    <div class="container-sm border border-dark" style="background: rgba(192, 192, 192, 0.7)">
+      <div id="presentation-container">
+        <h3 class="text-center">¿Cómo Funciona?</h3>
+        <p class="text-justify">
+          Funciona de la siguiente manera: A través de una API propia, se contacta a la API de
+          Riot Games, la cual retorna los datos de la cuenta (no tengas miedo, no podemos ver tu contraseña),
+          una lista de las ultimas 10 partidas jugadas (pueden ser más, pero por problemas en la clave para la API,
+          lo limitamos a 10 partidas), y las estadisticas de cada partida.
+          Nosotros tomamos las muertes que tuviste en cada partida, y te las mostramos así aprendes a no INTear...
+        </p>
+      </div>
+    </div>
+    <br>
+    <div class="container-sm border border-dark" style="background: rgba(192, 192, 192, 0.7)">
+      <br>
+      <div id="formulario" class="text-center">
+        <label for="summonerInput">Ingresá el Nombre de Invocador</label>
+        <input id="summonerInput" type="text" name="summonerInput" placeholder="Tu Nombre de Invocador">
+        <br>
+        <br>
+        <label for="hostSelect">Seleccioná el servidor</label>
+        <select id="hostSelect" name="hostSelect">
+          <option value="https://br1.api.riotgames.com">BR</option>
+          <option value="https://eun1.api.riotgames.com">EUN</option>
+          <option value="https://euw1.api.riotgames.com">EUW</option>
+          <option value="https://jp1.api.riotgames.com">JPN</option>
+          <option value="https://kr.api.riotgames.com">KR</option>
+          <option value="https://la1.api.riotgames.com">LAN</option>
+          <option value="https://la2.api.riotgames.com">LAS</option>
+          <option value="https://na1.api.riotgames.com">NA</option>
+          <option value="https://oc1.api.riotgames.com">OCE</option>
+          <option value="https://tr1.api.riotgames.com">TURK</option>
+          <option value="https://ru.api.riotgames.com">RUS</option>
+        </select>
+        <button type="button" id="sendRequest">Consultar Muertes</button>
+      </div>
+      <br>
+      <div id="resultado" class="text-center">
+          <h3>Has tenido esta cantidad de Muertes en 10 partidas</h3>
+          <br>
+          <div class="loader text-center" id="loading" style="display: inline-block;"></div>
+          <h2 id="showResultado"></h2>
+          <br>
+          <p>Queres intentarlo denuevo?</p>
+          <button id="retryRequest" type="button" name="button">Reiniciar</button>
+          <br>
+          <br>
+      </div>
+    </div>
+    <br>
+    <br>
+    <footer class="container-fluid" style="background: rgba(91, 91, 91); height: 50px;">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+      <p class="text-center">
+        © 2020 Riot Games, Inc. ·
+        <a href="#">Privacy</a>
+        ·
+        <a href="#">Terms</a>
+      </p>
+    </footer>
+  </body>
+</html>
